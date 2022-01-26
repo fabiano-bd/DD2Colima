@@ -16,12 +16,12 @@ $>./install_colima.sh
 
 Run the script on a terminal:
 ````
-$>uninstall_colima.sh
+$>./uninstall_colima.sh
 ````
 
 ## Start Colima with 1 CPU 1GB RAM and 10GB Disk
 
 Run the script on a terminal:
 ````
-$>start_colima.sh
+$>./start_colima.sh
 ````

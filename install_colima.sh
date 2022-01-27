@@ -5,20 +5,18 @@ function RemoveDocker
   # stop all containers
   docker kill $(docker ps -q)
 
-  # remove all containers
-  docker rm $(docker ps -a -q)
-
-  # remove all images
-  docker rmi $(docker images -q)
-  
-  # remove all volumes
-  docker volume prune -f
+  # remove all containers, images, volumes, networks and caches
+  docker system prune --all --force --volumes
 
   #stop docker desktop
   osascript -e 'quit app "Docker"'
 
   # unistall docker desktop
-  rm -Rf /Applications/Docker.app
+  if brew ls --version --casks docker > /dev/null; then
+      brew uninstall --zap --cask docker
+  else    
+      rm -Rf /Applications/Docker.app
+  fi
 
   # edit .docker/config.json to remove 's' from 'credsStore'
   # if not remove, it will cause a error while trying to download a new image.

@@ -5,14 +5,14 @@ function RemoveColima
   # stop all containers
   docker kill $(docker ps -q)
 
-  # remove all containers
-  docker rm $(docker ps -a -q)
-
-  # remove all images
-  docker rmi $(docker images -q)
+  # remove all containers, images, volumes, networks and caches
+  docker system prune --all --force --volumes  
 
   # stop colima
   colima stop
+
+  # delete image
+  colima delete
 
   # unistall docker
   brew uninstall docker

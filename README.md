@@ -2,7 +2,7 @@
 
 
 ## Attention
-All containers and images will be purge during the processe.
+All containers and images will be purge during the process.
 
 ## Remove Docker Desktop and install colima
 
